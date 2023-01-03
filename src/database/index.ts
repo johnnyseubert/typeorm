@@ -8,7 +8,7 @@ export const database = new DataSource({
    username: process.env.DB_USER,
    password: process.env.DB_PASS,
    database: process.env.DB,
-   synchronize: true,
+   synchronize: false,
    logging: true,
    entities: [__dirname + '/entities/*.ts'],
    migrations: [__dirname + '/migrations/*.ts'],
