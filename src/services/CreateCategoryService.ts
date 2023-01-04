@@ -1,9 +1,9 @@
-import { Category } from '../database/entities/Category';
-import { categoryRepository } from '../repositories/CategoryRepository';
+import { Category } from "../database/entities/Category"
+import { categoryRepository } from "../repositories/CategoryRepository"
 
 export interface CategoryRequest {
-   name: string;
-   description: string;
+   name: string
+   description: string
 }
 
 export class CreateCategoryService {
@@ -14,14 +14,14 @@ export class CreateCategoryService {
       const category = categoryRepository.create({
          name,
          description,
-      });
+      })
 
       //SELECT * FROM TB_CATEGORIAS WHERE NAME = VALOR DA VARIAVEL name
       if (await categoryRepository.findOneBy({ name })) {
-         throw new Error('Category already exists');
+         throw new Error("Category already exists")
       }
 
-      const savedCategory = await categoryRepository.save(category);
-      return savedCategory;
+      const savedCategory = await categoryRepository.save(category)
+      return savedCategory
    }
 }

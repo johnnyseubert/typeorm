@@ -1,0 +1,8 @@
+{
+   "editorconfig": true,
+   "arrowParens": "avoid",
+   "semi": false,
+   "tabWidth": 3,
+   "singleQuote": true,
+   "useTabs": true
+}
