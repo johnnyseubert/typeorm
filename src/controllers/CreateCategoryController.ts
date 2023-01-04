@@ -13,13 +13,12 @@ export class CreateCategoryController {
 
 		const service = new CreateCategoryService()
 
-		const result = await service.execute({ name, description })
-
-		if (result instanceof Error) {
-			return response.status(400).json({ error: result.message })
+		try {
+			const result = await service.execute({ name, description })
+			return response.status(201).json(result)
+		} catch (error) {
+			return response.status(400).json({ error: error.message })
 		}
-
-		return response.status(201).json(result)
 	}
 }
 
